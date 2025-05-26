@@ -12,7 +12,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Debug - show working directory
+        run: pwd
+
+      - name: Debug - list root files
+        run: ls -al
+
+      - name: Debug - list docker-image2 folder
+        run: ls -al ./docker-image2
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
