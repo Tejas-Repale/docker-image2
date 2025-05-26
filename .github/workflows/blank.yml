@@ -26,11 +26,10 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: .
-          file: ./Dockerfile
+          context: ./docker-image2
+          file: ./docker-image2/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/hello-world:latest
 
       - name: Confirm push success
         run: echo "Docker image pushed to Docker Hub as ${{ secrets.DOCKER_USERNAME }}/hello-world:latest"
-
